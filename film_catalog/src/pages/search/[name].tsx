@@ -1,33 +1,34 @@
 import { useEffect, useState } from "react";
 import styles from "./search.module.css";
 import { getMovies} from "@/services/moviesRequest";
-import { IFilm } from "@/types/film.types";
-import CardFilm from "@/components/cardFilm/CardFilm";
+import { IMovie } from "@/types/movie.types";
+import CardFilm from "@/components/cardMovie/CardMovie";
 import { useRouter, useParams } from 'next/navigation'
 import {FaArrowLeft } from "react-icons/fa";
 
 const Search = () => {
+
   const {push, back} = useRouter();
   const param  = useParams();
   const searchName = param?.name;
  
-  const [films, setFilms] = useState<IFilm[] | null>();
+  const [movie, setMovie] = useState<IMovie[] | null>();
 
   useEffect(() => {
 
     const getSearchMovies = async () => {
       if(searchName){
         const result = await getMovies(searchName);
-        setFilms(result);
+        setMovie(result);
       }
     }
 
     getSearchMovies();
+
   }, [searchName]);
 
   const handleSelect = (filmId: number) => {
     push(`/movieDetails/${filmId}`);
-    console.log(filmId) ;
   };
 
   return (
@@ -35,8 +36,8 @@ const Search = () => {
       <FaArrowLeft onClick={() => back()} className={styles.homeIcon}/>
       <h2>Resultados para: <span>{searchName}</span></h2>
       <div className={styles.cardsContainer}>
-        {films && 
-          films.map((film: IFilm) => (
+        {movie && 
+          movie.map((film: IMovie) => (
             <CardFilm movie={film} key={film.id} handleSelect={handleSelect}/>
           ))
         }

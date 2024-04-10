@@ -1,8 +1,8 @@
-import { ICardFilm } from "./CardFilm.types";
-import  style  from "./CardFilm.module.css";
+import { ICardFilm } from "./CardMovie.types";
+import  style  from "./CardMovie.module.css";
 import { FaStar } from "react-icons/fa";
 
-const CardFilm = ( {movie, handleSelect}: ICardFilm ) => {
+const CardMovie = ( {movie, handleSelect}: ICardFilm ) => {
 
 
     return (
@@ -16,4 +16,4 @@ const CardFilm = ( {movie, handleSelect}: ICardFilm ) => {
     );
   }
 
-  export default CardFilm
+  export default CardMovie

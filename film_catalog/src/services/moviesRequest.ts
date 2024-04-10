@@ -1,4 +1,4 @@
-import { IFilm} from "@/types/film.types";
+import { IMovie} from "@/types/movie.types";
 
 const moviesURL = process.env.NEXT_PUBLIC_API_URL
 const keyURL = process.env.NEXT_PUBLIC_SECRET_KEY;
@@ -7,14 +7,14 @@ const detailsURL = process.env.NEXT_PUBLIC_DETAILS;
 const searchURL = process.env.NEXT_PUBLIC_SEARCH;
 const languagehURL = process.env.NEXT_PUBLIC__LANGUAGE;
 
-const topRatedUrl = `${moviesURL}?${keyURL}&language=pt-BR`;
+const topPopularURL = `${moviesURL}?${keyURL}&${languagehURL}`;
 
 
 export const getPopularMovies = async () => {
-    const res = await fetch(topRatedUrl);
+    const res = await fetch(topPopularURL);
     const data = await res.json();
 
-    const movies: IFilm[] = data.results.map((result: IFilm) => ({
+    const movies: IMovie[] = data.results.map((result: IMovie) => ({
         id: result.id,
         title: result.title,
         vote_average: result.vote_average,
@@ -31,7 +31,7 @@ export const getMoviesDetails = async (id: string) => {
     const res = await fetch(urlDetails);
     const data = await res.json();
 
-    const movie: IFilm =  {
+    const movie: IMovie =  {
         id: data.id,
         title: data.title,
         vote_average: data.vote_average,
@@ -49,7 +49,7 @@ export const getMovies = async (searchName: string) => {
     const res = await fetch(urlDetails);
     const data = await res.json();
 
-    const movies: IFilm[] = data.results.map((result: IFilm) => ({
+    const movies: IMovie[] = data.results.map((result: IMovie) => ({
         id: result.id,
         title: result.title,
         vote_average: result.vote_average,

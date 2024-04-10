@@ -1,6 +1,6 @@
-import { IFilm } from "@/types/film.types";
+import { IMovie } from "@/types/movie.types";
 
 export interface ICardFilm {
-    movie: IFilm;
+    movie: IMovie;
     handleSelect: (filmId: number) => void;
   }

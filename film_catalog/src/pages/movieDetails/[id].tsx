@@ -1,5 +1,5 @@
 import { getMoviesDetails } from "@/services/moviesRequest";
-import { IFilm, IGenre } from "@/types/film.types";
+import { IMovie, IGenre } from "@/types/movie.types";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import style from "./movieDetails.module.css"
@@ -7,72 +7,72 @@ import { FaStar, FaArrowLeft } from "react-icons/fa";
 
 const UserEdit = () => {
 
-    const {query, back} = useRouter();
+  const {query, back} = useRouter();
 
-    const userId = query.id;
+  const userId = query.id;
 
-    const [film, setFilm] = useState<IFilm | undefined>();
+  const [movie, setMovie] = useState<IMovie | undefined>();
 
-    useEffect(() => {
-        const getMovies = async () => {
-            if(userId){
-            const result = await getMoviesDetails(userId);
-            setFilm(result);
-        }
+  useEffect(() => {
+    const getMovies = async () => {
+      if(userId){
+        const result = await getMoviesDetails(userId);
+        setMovie(result);
       }
+    }
   
       getMovies();
-    }, [userId]);
+  }, [userId]);
 
-    const formatData = (dataString: string | undefined) => {
-      if(dataString){
-        const data = new Date(dataString);
-        const dia = data.getDate().toString().padStart(2, '0');
-        const mes = (data.getMonth() + 1).toString().padStart(2, '0');
-        const ano = data.getFullYear();
-        return `${dia}-${mes}-${ano}`;
-      }else{
-        return "";
-      }
+  const formatData = (dataString: string | undefined) => {
+    if(dataString){
+      const data = new Date(dataString);
+      const dia = data.getDate().toString().padStart(2, '0');
+      const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+      const ano = data.getFullYear();
+      return `${dia}-${mes}-${ano}`;
+    }else{
+      return "";
     }
+  }
 
-    const formatGenres = (genres: IGenre[] | undefined) => {
-      if(genres){
-        const nomes = genres.map(objeto => objeto.name);
-        return nomes.join(', ');
-      }else{
-        return "";
-      }
+  const formatGenres = (genres: IGenre[] | undefined) => {
+    if(genres){
+      const nomes = genres.map(objeto => objeto.name);
+      return nomes.join(', ');
+    }else{
+      return "";
     }
+  }
 
   
-      return (
-        <div className={style.container}>
-          <FaArrowLeft onClick={() => back()} className={style.homeIcon}/>
+  return (
+    <div className={style.container}>
+      <FaArrowLeft onClick={() => back()} className={style.homeIcon}/>
           
-          {film === undefined ? (
-            <h2>Crregando...</h2>
-          ):(
-            <div className={style.movieDetails}>
-              <h2>{film?.title}</h2>
-              <div className={style.movieGroupInfo}>
-                <img src={film?.poster_path} alt={film?.title} />
-                <div className={style.movieGroupInfoTexts}>
-                  <p>{film?.overview}</p>
-                  <p>
-                    <strong>Lançamento:</strong> {formatData(film?.release_date)} 
-                  </p>
-                  <p><strong>Generos:</strong> {formatGenres(film?.genres)}</p>
-                  <p className={style.starSvg}>
-                    <FaStar/> {film?.vote_average}
-                  </p>
-                </div>
-              </div>
+      {movie === undefined ? (
+        <h2>Crregando...</h2>
+      ):(
+        <div className={style.movieDetails}>
+          <h2>{movie?.title}</h2>
+          <div className={style.movieGroupInfo}>
+            <img src={movie?.poster_path} alt={movie?.title} />
+              <div className={style.movieGroupInfoTexts}>
+              <p>{movie?.overview}</p>
+              <p>
+                <strong>Lançamento:</strong> {formatData(movie?.release_date)} 
+              </p>
+              <p><strong>Generos:</strong> {formatGenres(movie?.genres)}</p>
+              <p className={style.starSvg}>
+                <FaStar/> {movie?.vote_average}
+              </p>
             </div>
-          )}
-          
+          </div>
         </div>
-      );
-    }
+      )}
+          
+    </div>
+  );
+}
   
-    export default UserEdit
+export default UserEdit
