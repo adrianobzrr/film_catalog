@@ -1,0 +1,63 @@
+.container {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.homeIcon {
+    color: #231f47;
+    position: absolute;
+    margin-top: 2%;
+    left: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+    
+}
+
+.movieDetails {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+}
+
+.movieDetails h2 {
+    font-size: 2rem;
+}
+
+.movieGroupInfo {
+    background-color: #231f47;
+    display: flex;
+    padding: 2rem 2rem;
+    gap: 2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.movieGroupInfo p {
+    color: #fff;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.movieGroupInfo img {
+    max-height: 40%;
+    max-width: 30%;
+    height: auto;
+    width: auto;
+
+
+}
+
+.movieGroupInfoTexts {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.starSvg svg {
+    color: #27c05a;
+}

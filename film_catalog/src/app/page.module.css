@@ -1,8 +1,11 @@
-.container {
-  cursor: pointer;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .container h2 {
-  color: #fff;
+  color: #000;
   font-size: 2.5rem;
   text-align: center;
   margin: 2rem 0 1rem;
@@ -13,11 +16,12 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 80%;
+  margin: 2rem auto;
 }
 
 .cardsContainer h2 {
+  color: #fff;
   font-size: 1.4rem;
 }
 
@@ -28,8 +32,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #111;
+  background-color: #231f47;
   padding: 1rem;
+  border-radius: 1.2rem;
+  box-shadow: 0px 4px 8px #231f47;
+  cursor: pointer;
 }
 
 .cardsContainer div img {

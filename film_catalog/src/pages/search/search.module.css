@@ -1,0 +1,73 @@
+.container{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeIcon {
+    color: #231f47;
+    position: absolute;
+    margin-top: 2%;
+    left: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.container h2 {
+    color: #000;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 80%;
+    margin: 2rem auto;
+}
+
+.cardsContainer h2 {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.cardsContainer div{
+    width: 30%;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #231f47;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0px 4px 8px #231f47;
+    cursor: pointer;
+}
+
+.cardsContainer div img {
+    max-width: 100%;      
+}
+
+.cardsContainer div img,
+.cardsContainer div p {
+    margin-bottom: 1rem;
+}
+
+.cardsContainer div h2 {
+    margin-bottom: 1.5rem;
+}
+
+.cardsContainer div svg {
+    color: #27c05a;
+}
+
+
+
+

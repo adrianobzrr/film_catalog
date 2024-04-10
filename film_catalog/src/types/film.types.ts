@@ -1,8 +1,14 @@
 export interface IFilm {
     id: number;
     title: string;
-    average: number;
+    vote_average: number;
     overview: string;
     release_date: string;
-    img: string;
+    poster_path: string;
+    genres: IGenre[];
+  }
+
+  export interface IGenre {
+    id: number;
+    name: string;
   }

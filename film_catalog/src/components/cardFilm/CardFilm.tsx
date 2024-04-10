@@ -8,9 +8,9 @@ const CardFilm = ( {movie, handleSelect}: ICardFilm ) => {
     return (
       <div className={style.container} onClick={() => handleSelect(movie.id)}>
         <h2>{movie.title}</h2>
-        <img src={movie.img} alt={movie.title}/>
+        <img src={movie.poster_path} alt={movie.title}/>
         <p>
-          <FaStar/> {movie.average}
+          <FaStar/> {movie.vote_average}
         </p>
       </div>
     );

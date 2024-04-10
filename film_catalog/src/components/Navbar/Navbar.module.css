@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+  }
+  
+  .container h2{
+    width: 20%;
+  }
+  
+  .movieicon {
+    width: 20%;
+    font-size: 35px;
+  }
+  
+  .container form {
+    width: 20%;
+    display: flex;
+  }
+  
+  .container input {
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    border-color: #231f47;;
+  }
+  
+  .container form button {
+    background-color: #231f47;
+    border: 2px solid #231f47;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.3rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }

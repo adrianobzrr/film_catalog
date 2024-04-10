@@ -1,21 +1,22 @@
 'use client';
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import { getTopMovies } from "@/hooks/moviesRequest";
+import { getPopularMovies } from "@/services/moviesRequest";
 import { IFilm } from "@/types/film.types";
 import CardFilm from "@/components/cardFilm/CardFilm";
 import { useRouter } from 'next/navigation'
+import Navbar from "@/components/Navbar/Navbar";
 
 
 
 export default function Home() {
 
-  const router = useRouter();
+  const {push} = useRouter();
   const [films, setFilms] = useState<IFilm[] | null>();
 
   useEffect(() => {
     const getMovies = async () => {
-      const result = await getTopMovies();
+      const result = await getPopularMovies();
       setFilms(result);
     }
 
@@ -23,13 +24,12 @@ export default function Home() {
   }, []);
 
   const handleSelect = (filmId: number) => {
-    router.push(`/movieDetails`);
+    push(`/movieDetails/${filmId}`);
     console.log(filmId) ;
   };
-
   return (
     <div className={styles.container}>
-      <h2>Filmes</h2>
+      <Navbar/>
       <div className={styles.cardsContainer}>
         {films && 
           films.map((film: IFilm) => (
